@@ -2,97 +2,64 @@ from html.parser import HTMLParser
 
 buff = lambda txt: print('"' + txt + '"' + ', ', end='')
 flush = lambda txt: print('"' + txt + '"')
-
 reverse = lambda x: x[::-1]
+
+def predMkr(ptag, pattr, func):
+    return (lambda tag, attrs: ptag == tag and \
+            func(dict(attrs).get(pattr , 'None')))
 
 def isPostfix(ts, os):
     return reverse(ts)[:len(os)] == reverse(os)
+
+def pofixOf(os):
+    return lambda ts:isPostfix(ts, os)
+
+class Processer():
+    def __init__(self, predfunc, prcsfunc):
+        self.guard = False
+        self.predfunc = predfunc
+        self.prcsfunc = prcsfunc
+    def pred(self, tag, attrs):
+        if self.predfunc(tag, attrs):
+            self.guard = True
+    def prcs(self, data):
+        if self.guard:
+            self.prcsfunc(data)
+            self.guard = False
 
 class CourseParser(HTMLParser):
 
     def __init__(self):
 
         HTMLParser.__init__(self)
-        self.coursename = False
-        self.coursenum = False
-        self.instructor = False
-        self.point = False
-        self.session = False
-        self.place = False
-        self.lang = False
-        self.depart = False
-        self.length = False
-        self.ness = False
-        self.kernal = False
+        self.entries = [
+                Processer(predMkr('span', 'id', pofixOf('_coursenumL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_pointL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_sessionL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_placeL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_MOIL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_department_instituteL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_volumeL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_CEL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_kerlL')), buff),
+                Processer(predMkr('a', 'id', pofixOf('_instructorHL')), buff),
+                Processer(predMkr('a', 'id', pofixOf('_course_nameHL')), flush),
+                ]
 
     def handle_starttag(self , tag , attrs):
+        for prcser in self.entries:
+            prcser.pred(tag, attrs)
 
-        if tag == 'span':
-
-            iden = dict(attrs).get('id' , 'None')
-
-            if isPostfix(iden, '_coursenumL'):
-                self.coursenum = True # course number
-            elif isPostfix(iden, '_pointL'):
-                self.point = True     # point
-            elif isPostfix(iden, '_sessionL'):
-                self.session = True
-            elif isPostfix(iden, '_placeL'):
-                self.place = True
-            elif isPostfix(iden, '_MOIL'):
-                self.lang = True
-            elif isPostfix(iden, '_department_instituteL'):
-                self.depart = True
-            elif isPostfix(iden, '_volumeL'):
-                self.length = True
-            elif isPostfix(iden, '_CEL'):
-                self.ness = True
-            elif isPostfix(iden, '_kerlL'):
-                self.kernal = True
-
-        if tag == 'a':
-            iden = dict(attrs).get('id' , 'None')
-            if isPostfix(iden, '_instructorHL'):
-                self.instructor = True  # instructor
-            elif isPostfix(iden, '_course_nameHL'):
-                self.coursename = True  # course name
-
+        # for course URL
         if tag == 'input' and \
             isPostfix(dict(attrs).get('id' , 'None'), '_schm_tpeIB'):
             buff("http://wa.nccu.edu.tw/qrytor/" + \
                     dict(attrs).get('onclick' , 'None')[24:-16]) # outline
 
     def handle_data(self , data):
-        if self.coursenum:
-            buff(data)
-            self.coursenum = False
-        if self.instructor:
-            buff(data)
-            self.instructor = False
-        if self.point:
-            buff(data)
-            self.point = False
-        if self.place:
-            buff(data)
-            self.place = False
-        if self.lang:
-            buff(data)
-            self.lang = False
-        if self.depart:
-            buff(data)
-            self.depart = False
-        if self.length:
-            buff(data)
-            self.length = False
-        if self.ness:
-            buff(data)
-            self.ness = False
-        if self.kernal:
-            buff(data)
-            self.kernal = False
-        if self.coursename:
-            flush(data)
-            self.coursename = False
+
+        for prcser in self.entries:
+            prcser.prcs(data)
 
     def handle_endtag(self , tag):
         pass
