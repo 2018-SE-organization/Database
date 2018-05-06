@@ -1,8 +1,18 @@
 from html.parser import HTMLParser
 
-buff = lambda txt: print('"' + txt + '"' + ', ', end='')
-flush = lambda txt: print('"' + txt + '"')
+preslash = lambda xs:xs[:xs.find('/')].strip()
+posslash = lambda xs:xs[xs.find('/') + 1:].strip()
+quoted = lambda xs: '"' + xs + '"'
+cquoted = lambda xs: quoted(xs) + ', '
+
+buff = lambda txt: print(cquoted(txt), end='')
+flush = lambda txt: print(quoted(txt))
 reverse = lambda x: x[::-1]
+
+hinst = lambda txt: print(cquoted(preslash(txt)) + \
+                            cquoted(posslash(txt)) , end='')
+
+buffpre = lambda txt: print(cquoted(preslash(txt)), end='')
 
 def predMkr(ptag, pattr, func):
     return (lambda tag, attrs: ptag == tag and \
@@ -37,12 +47,12 @@ class CourseParser(HTMLParser):
                 Processer(predMkr('span', 'id', pofixOf('_pointL')), buff),
                 Processer(predMkr('span', 'id', pofixOf('_sessionL')), buff),
                 Processer(predMkr('span', 'id', pofixOf('_placeL')), buff),
-                Processer(predMkr('span', 'id', pofixOf('_MOIL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_MOIL')), buffpre),
                 Processer(predMkr('span', 'id', pofixOf('_department_instituteL')), buff),
                 Processer(predMkr('span', 'id', pofixOf('_volumeL')), buff),
-                Processer(predMkr('span', 'id', pofixOf('_CEL')), buff),
-                Processer(predMkr('span', 'id', pofixOf('_kerlL')), buff),
-                Processer(predMkr('a', 'id', pofixOf('_instructorHL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_CEL')), buffpre),
+                Processer(predMkr('span', 'id', pofixOf('_kerlL')), buffpre),
+                Processer(predMkr('a', 'id', pofixOf('_instructorHL')), hinst),
                 Processer(predMkr('a', 'id', pofixOf('_course_nameHL')), flush),
                 ]
 
