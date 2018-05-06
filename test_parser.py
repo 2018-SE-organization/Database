@@ -1,18 +1,21 @@
 from html.parser import HTMLParser
 
+comp = lambda f ,g:lambda a:f(g(a))
 preslash = lambda xs:xs[:xs.find('/')].strip()
 posslash = lambda xs:xs[xs.find('/') + 1:].strip()
 quoted = lambda xs: '"' + xs + '"'
 cquoted = lambda xs: quoted(xs) + ', '
 
 buff = lambda txt: print(cquoted(txt), end='')
-flush = lambda txt: print(quoted(txt))
 reverse = lambda x: x[::-1]
 
-hinst = lambda txt: print(cquoted(preslash(txt)) + \
-                            cquoted(posslash(txt)) , end='')
+hField = lambda fd, fn, ed : (lambda data: print(quoted(fd) + ":" + fn(data), end=ed))
 
 buffpre = lambda txt: print(cquoted(preslash(txt)), end='')
+
+splitBy = lambda ch:(lambda xs:xs.split(ch))
+
+rmChrFrom = lambda ch: lambda xs:''.join([x for x in xs if x != ch])
 
 def predMkr(ptag, pattr, func):
     return (lambda tag, attrs: ptag == tag and \
@@ -43,17 +46,17 @@ class CourseParser(HTMLParser):
 
         HTMLParser.__init__(self)
         self.entries = [
-                Processer(predMkr('span', 'id', pofixOf('_coursenumL')), buff),
-                Processer(predMkr('span', 'id', pofixOf('_pointL')), buff),
-                Processer(predMkr('span', 'id', pofixOf('_sessionL')), buff),
-                Processer(predMkr('span', 'id', pofixOf('_placeL')), buff),
-                Processer(predMkr('span', 'id', pofixOf('_MOIL')), buffpre),
-                Processer(predMkr('span', 'id', pofixOf('_department_instituteL')), buff),
-                Processer(predMkr('span', 'id', pofixOf('_volumeL')), buff),
-                Processer(predMkr('span', 'id', pofixOf('_CEL')), buffpre),
-                Processer(predMkr('span', 'id', pofixOf('_kerlL')), buffpre),
-                Processer(predMkr('a', 'id', pofixOf('_instructorHL')), hinst),
-                Processer(predMkr('a', 'id', pofixOf('_course_nameHL')), flush),
+#                Processer(predMkr('span', 'id', pofixOf('_coursenumL')), buff),
+                Processer(predMkr('span', 'id', pofixOf('_pointL')), hField('point', comp(str, comp(int, float)), ',')),
+                Processer(predMkr('span', 'id', pofixOf('_sessionL')), hField("time", quoted, ',')),
+#                Processer(predMkr('span', 'id', pofixOf('_placeL')), buff),
+#                Processer(predMkr('span', 'id', pofixOf('_MOIL')), buffpre),
+#                Processer(predMkr('span', 'id', pofixOf('_department_instituteL')), buff),
+#                Processer(predMkr('span', 'id', pofixOf('_volumeL')), buff),
+#                Processer(predMkr('span', 'id', pofixOf('_CEL')), buffpre),
+#                Processer(predMkr('span', 'id', pofixOf('_kerlL')), buffpre),
+                Processer(predMkr('a', 'id', pofixOf('_instructorHL')), hField("inst", comp(str, comp(splitBy('、'), preslash)), ',')),
+                Processer(predMkr('a', 'id', pofixOf('_course_nameHL')), hField("cname", comp(quoted, rmChrFrom('"')), '\n')),
                 ]
 
     def handle_starttag(self , tag , attrs):
@@ -63,8 +66,8 @@ class CourseParser(HTMLParser):
         # for course URL
         if tag == 'input' and \
             isPostfix(dict(attrs).get('id' , 'None'), '_schm_tpeIB'):
-            buff("http://wa.nccu.edu.tw/qrytor/" + \
-                    dict(attrs).get('onclick' , 'None')[24:-16]) # outline
+            print('"url":"http://wa.nccu.edu.tw/qrytor/' + \
+                    dict(attrs).get('onclick' , 'None')[24:-16] + '"', end=',') # outline
 
     def handle_data(self , data):
 
