@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	國立政治大學校務行政系統 課程查詢 NCCU Administration System System for Course Schedule 104
+</title><link href="style.css" rel="stylesheet" type="text/css" />    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript">
+    </script>
+</head>
+<body>
+    <div id="menual">
+        <form name="form1" method="post" action="qryScheduleResult.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE1NDM5NTE1NjIPFgIeDWNvbnRyb2xzYWRkZWRnFgICAw9kFgICAQ9kFh4CAw8WAh4HVmlzaWJsZWhkAgUPDxYCHwFoZGQCBw8WAh8BaGQCCw8PFgIfAWhkZAIPD2QWAgIBDxYCHwFoZAIRD2QWBAIBDw8WAh4EVGV4dAUo5YWx5om+5YiwMeethuizh+aWmSwx6LOH5paZ5Y+v5L6b54CP6Ka9LmRkAh0PDxYCHwFoZGQCFQ8QZGQWAQIBZAIXDxYCHwFoFgICBQ9kFgICJQ8WAh8BaGQCRQ8PFgIeB0VuYWJsZWRoZGQCRw8PFgIfA2hkZAJLDw8WAh8DaGRkAk0PDxYCHwNoZGQCUQ8QZGQWAQIBZAJTDw8WAh8CBQxQYWdlOiAxIG9mIDFkZAJXDxBkEBUBATEVAQExFCsDAWcWAWZkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBRpxcnlyZXN1bHQwJHRyYWNraW5nX2xpc3RJQgUVcXJ5cmVzdWx0MCRzY2htX3RwZUlC1euYAbn3wOTn5SCGThMf4V3wJApq/lL7c+/cUkXny58=" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6A224DF5" />
+        <div id="menual_top">
+            <div id="menual_title">
+            </div>
+            <div id="menual_welcome_word">課程查詢系統</div><div id="menual_logo"></div>
+            <div id="menual_Return">
+                <strong><span
+                    id="Header1_nameLabel"></span></strong>∣<a
+                            href="http://www.nccu.edu.tw/">回政大首頁</a>∣</div>
+        </div>
+        <div id="maintain_profile_content">
+            <div id="maintain_profile_content_main">
+                <div class="menual_title">
+                    課程查詢系統</div>
+                <div id="hlP">
+	
+                    
+                    <div id="SCS_sec_02_btn" class="SCS_btn">
+                        <table width="180" border="0" align="center" cellpadding="1" cellspacing="5">
+                            <tr>
+                                <td>
+                                    <div class="stud_item_title">
+                                        <a id="RTCSEB" href="javascript:__doPostBack(&#39;RTCSEB&#39;,&#39;&#39;)">回到課程查詢首頁</a></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                
+</div>
+                <div style="font-size: 0.8em;">
+                    <table width="100%" border="0" cellpadding="5">
+                        <tr>
+                            <td style="width:12px" align="left" valign="bottom">
+                                ‧
+                            </td>
+                            <td id="FilterXX" style="width:920px" align="left" valign="bottom">
+                                <span id="countL">共找到1筆資料,1資料可供瀏覽.</span>&nbsp;&nbsp;<span id="FilterRstLb"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                                &nbsp;
+                                
+                                &nbsp;
+                                
+                                &nbsp;
+                                
+                                &nbsp;
+                                
+                                &nbsp;
+                                
+                                
+                            </td>
+
+                            <td align="right" style="width:250px;">
+                                查詢結果顯示筆數：<span id="numberpageRBL"><input id="numberpageRBL_0" type="radio" name="numberpageRBL" value="10" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;numberpageRBL$0\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="numberpageRBL_0">10</label><input id="numberpageRBL_1" type="radio" name="numberpageRBL" value="20" checked="checked" /><label for="numberpageRBL_1">20</label><input id="numberpageRBL_2" type="radio" name="numberpageRBL" value="30" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;numberpageRBL$2\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="numberpageRBL_2">30</label><input id="numberpageRBL_3" type="radio" name="numberpageRBL" value="40" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;numberpageRBL$3\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="numberpageRBL_3">40</label><input id="numberpageRBL_4" type="radio" name="numberpageRBL" value="50" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;numberpageRBL$4\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="numberpageRBL_4">50</label></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="maintain_profile_content_table" >
+                    <table border="1px" cellpadding="2" cellspacing="0" style="border-color: #8CB0BF;"
+                        width="100%">
+                        <tr>
+                            
+                            <td class="profile_stud_maintain_form_table_border_2"  align="center" style="width:40px" valign="top">
+                                加入我的追蹤清單
+                            </td>
+                            <td   class="profile_stud_maintain_form_table_border_2"  align="center" valign="top">
+                                學年期
+                            </td>
+                            <td   class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                科目代號
+                            </td>
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                任課教師暨學術專長
+                            </td>
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                學分
+                            </td>
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                上課時間
+                            </td>
+                            <td class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                教室
+                            </td>
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                教學大綱
+                            </td>
+                            <td   class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                選課方式
+                            </td>
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                遠距科目
+                            </td>
+                            <td class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                授課語言
+                            </td>
+                            
+                            <td class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                得充抵通識
+                            </td>
+                            <td class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                通識類別
+                            </td>
+                            <td   class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                收費
+                            </td>
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                擴大輔系
+                            </td>
+                            
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                系所年級/開課院系
+                            </td>
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                期數(1:學期課 2:學年課)
+                            </td>
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                修別
+                            </td>
+                            <td  class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                核心通識
+                            </td>
+                            <td class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                選課餘額/選課人數
+                            </td>
+                            <td class="profile_stud_maintain_form_table_border_2" align="center" valign="top">
+                                遞補人數
+                            </td>
+                        </tr>
+                        <div id="qryresultP">
+	<tr id="qryresult0_QryTr">
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <input type="image" name="qryresult0$tracking_listIB" id="qryresult0_tracking_listIB" src="images/add_box.gif" border="0" style="text-align:center;display:none;" />
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_yy_smtL" style="display:inline-block;">106/2</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_coursenumL" style="display:inline-block;">501045001</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        
+        
+        <a id="qryresult0_instructorHL" href="teaexp.aspx?view=4b792b786c6b592f34326a4571514e306856745963413d3d" target="_blank">余淑慧 / YEE SOH-FEE</a>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_pointL" style="display:inline-block;">3.0</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_sessionL" style="display:inline-block;">五234 / fri09-12</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_placeL" style="display:inline-block;">季陶340401</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <input type="image" name="qryresult0$schm_tpeIB" id="qryresult0_schm_tpeIB" src="images/teach_agenda.gif" onclick="javascript:window.open(&#39;schmtpe.aspx?view=4b792b786c6b592f34326a4571514e306856745963413d3d&#39;);return false;" border="0" style="display:block;" />
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_wayL" style="display:inline-block;">一般</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_distance_courseL" style="display:inline-block;"></span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_MOIL" style="display:inline-block;">中文/<br/>Mandarin</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_eligibleL" style="display:inline-block;">否/No</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_GECL" style="display:inline-block;"></span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_chargesL" style="display:inline-block;">否 / No</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_auxiliaryL" style="display:inline-block;">否 / No</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_department_instituteL" style="display:inline-block;">英文四甲英文四乙</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_volumeL" style="display:inline-block;">1</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_CEL" style="display:inline-block;">必/<br/>Required</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <span id="qryresult0_kerlL" style="display:inline-block;">否/<br/>No</span>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        
+        <a id="qryresult0_ColSeqNumHL" href="https://selectcourse.nccu.edu.tw/remain/goGenDetail.aspx?view=4b792b786c6b592f34326a4571514e306856745963413d3d" target="_blank">查詢/<br/>Query</a>
+    </td>
+		<td class="profile_stud_maintain_form_table_border_4" align="left">
+        <a id="qryresult0_ColQueCntHL" href="https://selectcourse.nccu.edu.tw/remain/goGenDetail.aspx?view=4b792b786c6b592f34326a4571514e306856745963413d3d" target="_blank">0</a>
+    </td>
+	</tr>
+	
+<tr id="qryresult0_Qrytt">
+		<td colspan="3" class="profile_stud_maintain_form_table_border_2">
+        <a id="qryresult0_course_nameHL" href="courseSyllabus.aspx?view=4b792b786c6b592f34326a4571514e306856745963413d3d" target="_blank">翻譯專題：翻譯理論 / Topics on Translation : Translation Theory</a>
+    </td>
+		<td colspan="18" class="profile_stud_maintain_form_table_border_2">
+        <table width="100%" cellpadding="2">
+            <tr>
+                <td  style="width:12px; text-align:left; vertical-align:top">
+                    &nbsp;
+                </td>
+                <td align="left" valign="top" style="color:#BF5757">
+                    <span class="style1">
+                            <span id="qryresult0_chg_remL">＠異動資訊Information of alteration:教室異動於2018/03/05;</span></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    &nbsp;
+                </td>
+                <td align="left" valign="top">
+                    
+                            <span id="qryresult0_noteL">＠備註Note:N/A</span>
+                </td>
+            </tr>
+        </table>
+        <table width="100%" cellpadding="2">
+            <tr>
+                <td  style="width:12px; text-align:left; vertical-align:top">&nbsp;</td>
+                <td align="left" valign="top">
+                    
+                    <span id="qryresult0_department_engL"></span>
+                </td>
+            </tr>
+        </table>
+    </td>
+	</tr>
+	
+
+</div>
+                    </table>
+                    <table width="100%" border="0">
+                        <tr>
+                            <td align="right" style="width:auto">
+                                <a id="firstLB" disabled="disabled">&lt; &lt; 第一頁</a>
+                                <a id="previousLB" disabled="disabled">&lt; 上一頁</a>
+                            </td>
+                            <td align="center">
+                                <div id="pagePanel">
+	<span id="pg0">1</span><span>, </span>
+</div>
+                            </td>
+                            <td align="left">
+                                <a id="nextLB" disabled="disabled">下一頁 &gt; </a>
+                                <a id="lastLB" disabled="disabled">最後一頁 &gt; &gt;</a>
+                            </td>
+                            <td align="right" style="width:250px">
+                                查詢結果顯示筆數：<span id="numberpageRBL2"><input id="numberpageRBL2_0" type="radio" name="numberpageRBL2" value="10" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;numberpageRBL2$0\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="numberpageRBL2_0">10</label><input id="numberpageRBL2_1" type="radio" name="numberpageRBL2" value="20" checked="checked" /><label for="numberpageRBL2_1">20</label><input id="numberpageRBL2_2" type="radio" name="numberpageRBL2" value="30" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;numberpageRBL2$2\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="numberpageRBL2_2">30</label><input id="numberpageRBL2_3" type="radio" name="numberpageRBL2" value="40" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;numberpageRBL2$3\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="numberpageRBL2_3">40</label><input id="numberpageRBL2_4" type="radio" name="numberpageRBL2" value="50" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;numberpageRBL2$4\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="numberpageRBL2_4">50</label></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="3">
+                                
+                                
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="maintain_profile_btn">
+                    <p style="text-align:center">
+                        &nbsp;</p>
+                    <p style="text-align:center">
+                        <label>
+                            
+                        </label>
+                    </p>
+                    <p  style="text-align:center">
+                        &nbsp;</p>
+                </div>
+            </div>
+        </div>
+        <div id="menual_footer">
+            <br />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    for (i = 0; i < 50; i++) {
+        var id = '#qryresult' + i + '_QryTr > td';
+
+        var id2 = '#qryresult' + i + '_Qrytt > td';
+        if (i%2 ==0){
+            $(id).css('background-color', '#F5F5F5');
+            $(id2).css('background-color', '#F5F5F5');
+        }
+        else{
+            $(id).css('background-color', '#E2E2E2');
+            $(id2).css('background-color', '#E2E2E2');
+        }
+
+
+    }
+
+//    function () {
+//        $('#FilterImgDiv').css('display', 'block');
+//        $('#FilterBtnDiv').css('display', 'none');
+//    }
+//    $.ajax({
+//        type: 'GET',
+//        url: 'filterCount.aspx',
+
+//        //         error: function (data) { alert("AJAX FAILED" + data); },
+//        complete: function () { $('#FilterImgDiv').css('display', 'none'); $('#FilterBtnDiv').css('display', 'block'); },
+//        success: function (data) {
+//            //       alert("success!!" + data);
+//            var dataArray = data.split(",");
+//            if (dataArray[0] != 0) {
+//                $('#AnyDayLb').text("(" + dataArray[0].toString() + ")");
+//                $('#AnyDayDiv').css('display', 'block');
+//            }
+//            else {
+//                $('#AnyDayDiv').css('display', 'none');
+//            }
+//            if (dataArray[1] != 0) {
+//                $('#MonLb').text("(" + dataArray[1].toString() + ")");
+//                $('#MonDiv').css('display', 'block');
+//            }
+//            else
+//                $('#MonDiv').css('display', 'none');
+//            if (dataArray[2] != 0) {
+//                $('#TueLb').text("(" + dataArray[2].toString() + ")");
+//                $('#TueDiv').css('display', 'block');
+//            }
+//            else
+//                $('#TueDiv').css('display', 'none');
+//            if (dataArray[3] != 0) {
+//                $('#WedLb').text("(" + dataArray[3].toString() + ")");
+//                $('#WedDiv').css('display', 'block');
+//            }
+//            else
+//                $('#WedDiv').css('display', 'none');
+//            if (dataArray[4] != 0) {
+//                $('#ThuLb').text("(" + dataArray[4].toString() + ")");
+//                $('#ThuDiv').css('display', 'block');
+//            }
+//            else
+//                $('#ThuDiv').css('display', 'none');
+//            if (dataArray[5] != 0) {
+//                $('#FriLb').text("(" + dataArray[5].toString() + ")");
+//                $('#FriDiv').css('display', 'block');
+//            }
+//            else
+//                $('#FriDiv').css('display', 'none');
+//            if (dataArray[6] != 0) {
+//                $('#SatLb').text("(" + dataArray[6].toString() + ")");
+//                $('#SatDiv').css('display', 'block');
+//            }
+//            else
+//                $('#SatDiv').css('display', 'none');
+//            if (dataArray[7] != 0) {
+//                $('#SunLb').text("(" + dataArray[7].toString() + ")");
+//                $('#SunDiv').css('display', 'block');
+//            }
+//            else
+//                $('#SunDiv').css('display', 'none');
+//            //                if (dataArray[8] != 0) {
+//            //                    $('#AnySecLb').text("(" + dataArray[8].toString() + ")");
+//            //                    $('#AnySecDiv').css('display', 'block');
+//            //                }
+//            //                else
+//            //                    $('#AnySecDiv').css('display', 'none');
+//            if (dataArray[9] != 0) {
+//                $('#MoSecLb').text("(" + dataArray[9].toString() + ")");
+//                $('#MoSecDiv').css('display', 'block');
+//            }
+//            else
+//                $('#MoSecDiv').css('display', 'none');
+//            if (dataArray[10] != 0) {
+//                $('#NoSecLb').text("(" + dataArray[10].toString() + ")");
+//                $('#NoSecDiv').css('display', 'block');
+//            }
+//            else
+//                $('#NoSecDiv').css('display', 'none');
+//            if (dataArray[11] != 0) {
+//                $('#AfSecLb').text("(" + dataArray[11].toString() + ")");
+//                $('#AfSecDiv').css('display', 'block');
+//            }
+//            else
+//                $('#AfSecDiv').css('display', 'none');
+//            if (dataArray[12] != 0) {
+//                $('#NiSecLb').text("(" + dataArray[12].toString() + ")");
+//                $('#NiSecDiv').css('display', 'block');
+//            }
+//            else
+//                $('#NiSecDiv').css('display', 'none');
+//            if (dataArray[13] != 0) {
+//                $('#OpenLb').text("(" + dataArray[13].toString() + ")");
+//                $('#OpenDiv').css('display', 'block');
+//            }
+//            else
+//                $('#OpenDiv').css('display', 'none');
+//            if (dataArray[14] != 0) {
+//                $('#AfterLb').text("(" + dataArray[14].toString() + ")");
+//                $('#AfterDiv').css('display', 'block');
+//            }
+//            else
+//                $('#AfterDiv').css('display', 'none');
+//            if (dataArray[15] != 0) {
+//                $('#CloseLb').text("(" + dataArray[15].toString() + ")");
+//                $('#CloseDiv').css('display', 'block');
+//            }
+//            else
+//                $('#CloseDiv').css('display', 'none');
+//            if (dataArray[16] != 0) {
+//                $('#ChiLb').text("(" + dataArray[16].toString() + ")");
+//                $('#ChiDiv').css('display', 'block');
+//            }
+//            else
+//                $('#ChiDiv').css('display', 'none');
+//            if (dataArray[17] != 0) {
+//                $('#EngLb').text("(" + dataArray[17].toString() + ")");
+//                $('#EngDiv').css('display', 'block');
+//            }
+//            else
+//                $('#EngDiv').css('display', 'none');
+//            if (dataArray[18] != 0) {
+//                $('#OthersLb').text("(" + dataArray[18].toString() + ")");
+//                $('#OthersDiv').css('display', 'block');
+//            }
+//            else
+//                $('#OthersDiv').css('display', 'none');
+//            if (dataArray[19] != 0) {
+//                $('#NoPayLb').text("(" + dataArray[19].toString() + ")");
+//                $('#NoPayDiv').css('display', 'block');
+//            }
+//            else
+//                $('#NoPayDiv').css('display', 'none');
+//            if (dataArray[20] != 0) {
+//                $('#YesPayLb').text("(" + dataArray[20].toString() + ")");
+//                $('#YesPayDiv').css('display', 'block');
+//            }
+//            else
+//                $('#YesPayDiv').css('display', 'none');
+//            if (dataArray[21] != 9999) {
+//                $('#RemainCsLb').text("(" + dataArray[21].toString() + ")");
+//                $('#RemainCsDiv').css('display', 'block');
+//            }
+//            else
+//                $('#RemainCsDiv').css('display', 'none');
+//            if (dataArray[22] != 9999) {
+//                $('#TmpFullCsLb').text("(" + dataArray[22].toString() + ")");
+//                $('#TmpFullCsDiv').css('display', 'block');
+//            }
+//            else
+//                $('#TmpFullCsDiv').css('display', 'none');
+
+
+//        }
+
+//    });
+
+
+</script>
