@@ -2,6 +2,7 @@ from html.parser import HTMLParser
 from urllib.request import urlopen
 from urllib.parse import urlencode
 from timeMask import timeMask
+from os import walk
 
 def insert(xs, g):
     ys = []
@@ -15,7 +16,10 @@ def handle(data):
     a, b = data['instructor'].split(' / ')
     data['instructor'] = a.split('、')
     data['instructor_en'] = b.split()
-    data['session'] = timeMask(data['session'].split(' / ')[0])
+    if data['session'][0] not in '1234567890ABCDEF一二三四五六日':
+        data['session'] = 'None'
+    else:
+        data['session'] = timeMask(data['session'].split(' / ')[0])
     data['crse_type'] = data['crse_type'].split('/')[0]
     data['place'] = insert(data['place'], lambda e: e in '0123456789').split()
 
@@ -113,5 +117,8 @@ class CourseParser(HTMLParser):
 if __name__ == "__main__":
     logger = Buffer()
     parser = CourseParser()
-    parser.feed(open('qryTor/504055022.html', 'r').read())
-    logger.flush()
+    for t in walk('qryTor'):
+        for fn in t[2]:
+            print(fn)
+            parser.feed(open('qryTor/' + fn, 'r').read())
+            logger.flush()
